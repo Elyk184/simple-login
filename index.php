@@ -9,7 +9,7 @@
 <body>
     <div class="card-container">
         <div class="card">
-            <h3 class="text-primary">DonMarco</h3>
+            <h3 class="text-primary">Kylie</h3>
             <hr class="border-line"/>
             <?php if(isset($_SESSION['message'])): ?>
                 <div class="alert alert-<?php echo $_SESSION['message']['alert'] ?> msg">

@@ -1,0 +1,47 @@
+/* Full-page flexbox for centering */
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('https://i.pinimg.com/originals/4e/4c/66/4e4c664a900a8d4fbccacc1e9830c253.gif') no-repeat center center fixed;
+    background-size: cover;
+    overflow: hidden;
+}
+
+/* Center the card container */
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Transparent card for the form */
+.card {
+    padding: 20px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+/* Additional styling */
+.text-primary {
+    text-align: center;
+}
+
+hr.border-line {
+    margin: 15px 0;
+}
+
+.btn-primary {
+    margin-top: 10px;
+}
+
+.register-link {
+    text-align: center;
+    margin-top: 10px;
+}
