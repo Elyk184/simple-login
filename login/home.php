@@ -7,13 +7,11 @@ if (!isset($_SESSION['user'])) {
     header('location:../index.php');
 }
 
-// Fetch employee details
 $id = $_SESSION['user'];
 $sql = $conn->prepare("SELECT * FROM `employee` WHERE `employee_id`='$id'");
 $sql->execute();
 $fetch = $sql->fetch();
 
-// Inner Join Query
 $innerJoinSql = "
     SELECT 
         employee.firstname, 
@@ -26,7 +24,6 @@ $innerJoinSql = "
     JOIN 
         employee ON order_details.employee_id = employee.employee_id";
 
-// Right Join Query
 $rightJoinSql = "
     SELECT 
         employee.employee_id, 
@@ -42,7 +39,6 @@ $rightJoinSql = "
     RIGHT JOIN 
         order_details ON employee.employee_id = order_details.employee_id";
 
-// Left Join Query
 $leftJoinSql = "
     SELECT 
         employee.employee_id, 
@@ -58,7 +54,6 @@ $leftJoinSql = "
     LEFT JOIN 
         order_details ON employee.employee_id = order_details.employee_id";
 
-// Outer Join Query
 $outerJoinSql = "
     SELECT 
         employee.employee_id, 
@@ -87,7 +82,6 @@ $outerJoinSql = "
         employee 
     LEFT JOIN 
         order_details ON employee.employee_id = order_details.employee_id";
-
 ?>
 
 <html lang="en">
@@ -96,78 +90,89 @@ $outerJoinSql = "
     <title>Employee Dashboard</title>
     <style>
         body {
-    font-family: Arial, sans-serif;
-    background-color: transparent;
-    color: white;
-    margin: 0;
-    padding: 20px;
-}
-
-.container {
-    max-width: 800px;
-    margin: auto;
-    background: rgba(0, 0, 0, 0.6); /* Black with 60% opacity for transparency */
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-    position: relative;
-}
-
-h3 {
-    color: #FF6F20;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-}
-
-th, td {
-    padding: 10px;
-    border: 1px solid #e0e0e0;
-}
-
-th {
-    background-color: #1E1E1E;
-}
-
-.header {
-    background: #FF6F20;
-    color: white;
-    padding: 10px;
-    text-align: center;
-}
-
-a.logout {
-    background-color: #FF6F20;
-    color: white;
-    padding: 10px 15px;
-    text-decoration: none;
-    border-radius: 5px;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-}
-
+            font-family: Arial, sans-serif;
+            background-color: #0d0d0d;
+            color: #ff99cc;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+        h3, h4 {
+            color: #ff66b2;
+            text-align: center;
+        }
+        .logout {
+            background-color: #ff66b2;
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 5px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            transition: background-color 0.3s ease;
+        }
+        .logout:hover {
+            background-color: #ff3385;
+        }
+        .header {
+            background: #ff66b2;
+            color: white;
+            padding: 12px;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #333;
+            text-align: left;
+        }
+        th {
+            background-color: #ff66b2;
+            color: #1a1a1a;
+        }
+        tr:nth-child(even) {
+            background-color: #292929;
+        }
+        tr:nth-child(odd) {
+            background-color: #333333;
+        }
+        p {
+            color: #ff99cc;
+            font-weight: bold;
+            margin: 5px 0;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h3></h3>
-        <hr/>
-        <h3>Welcome!</h3>
-        <center>
-            <h4><?php echo htmlspecialchars($fetch['firstname'] . " " . $fetch['lastname']); ?></h4>
-        </center>
-        
         <a href="logout.php" class="logout">Logout</a>
+        
+        <h3>Welcome</h3>
+        <h4><?php echo htmlspecialchars($fetch['firstname'] . " " . $fetch['lastname']); ?></h4>
 
-        <p>Joins Samples of my dbs</p>
+        <p> Joins </p>
 
         <!-- Inner Join Results -->
         <div>
-            <p>Select  employee.firstname,   employee.lastname,   order_details.product_id, order_details.Quantity,   order_details.Unit_price from order_details  join employee on order_details.employee_id = employee.employee_id  ;</p>
+            <p>Inner Join Query</p>
             <div class="header">Inner Join Results</div>
             <table>
                 <thead>
@@ -197,7 +202,7 @@ a.logout {
 
         <!-- Right Join Results -->
         <div>
-            <p>Select * from employee right join  order_details on employee.employee_id = order_details.employee_id;</p>
+            <p>Right Join Query</p>
             <div class="header">Right Join Results</div>
             <table>
                 <thead>
@@ -233,7 +238,7 @@ a.logout {
 
         <!-- Left Join Results -->
         <div>
-              <p>Select * from employee left join  order_details on employee.employee_id = order_details.employee_id;</p>
+            <p>Left Join Query</p>
             <div class="header">Left Join Results</div>
             <table>
                 <thead>
@@ -269,7 +274,7 @@ a.logout {
 
         <!-- Outer Join Results -->
         <div>
-            <p>Select * from employee right join  order_details  on employee.employee_id = order_details.employee_id union  select * from employee left join  order_details  on employee.employee_id = order_details.employee_id;</p>
+            <p>Outer Join Query</p>
             <div class="header">Outer Join Results</div>
             <table>
                 <thead>

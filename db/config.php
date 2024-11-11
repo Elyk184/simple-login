@@ -2,7 +2,7 @@
 <?php
 $db_username = 'root';
 $db_password = '';
-$db_name = 'midtddl';
+$db_name = 'kyle';
 $db_host = 'localhost';
 
 try {

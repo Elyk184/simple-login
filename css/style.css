@@ -5,7 +5,7 @@ body, html {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url('https://i.pinimg.com/originals/4e/4c/66/4e4c664a900a8d4fbccacc1e9830c253.gif') no-repeat center center fixed;
+    background: linear-gradient(to bottom, #67b142, #aa39b8);
     background-size: cover;
     overflow: hidden;
 }
@@ -31,6 +31,15 @@ body, html {
 /* Additional styling */
 .text-primary {
     text-align: center;
+}
+.btn-primary {
+    background-color: #333333;
+    border: none;
+    color: #ffffff;
+    padding: 10px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 5px;
 }
 
 hr.border-line {

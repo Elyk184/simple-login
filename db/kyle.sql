@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 08, 2024 at 09:39 AM
+-- Generation Time: Nov 11, 2024 at 01:43 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `midtddl`
+-- Database: `kyle`
 --
 
 -- --------------------------------------------------------
@@ -33,17 +33,20 @@ CREATE TABLE `employee` (
   `lastname` varchar(50) NOT NULL,
   `username` varchar(30) NOT NULL,
   `password` varchar(12) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `employee`
 --
 
 INSERT INTO `employee` (`employee_id`, `firstname`, `lastname`, `username`, `password`) VALUES
-(4, 'Marinel ', 'Sabanal', 'mane', '$2y$10$N7Vj.'),
-(5, 'Frich ', 'Magan', 'frich', '123'),
-(6, 'Jhas', 'Ambogna', 'gay', '1234'),
-(7, 'Mark', 'Malagar', 'marky', '12345');
+(4, 'dan ', 'jav', 'dan', '$2y$10$N7Vj.'),
+(5, 'dan ', 'mark', 'das', '12345'),
+(6, 'bab', 'babab', 'bab', '12345'),
+(7, 'Mark', 'Javier', 'mark', '12345'),
+(8, 'jhasen', 'opaw', 'pog', ''),
+(9, 'jonard', '', '', ''),
+(10, 'jonard', 'pasilan', 'nard', '11111');
 
 -- --------------------------------------------------------
 
@@ -106,7 +109,7 @@ ALTER TABLE `employee`
 -- Indexes for table `order_details`
 --
 ALTER TABLE `order_details`
-  ADD KEY `fk_employee_id` (`employee_id`),
+  ADD PRIMARY KEY (`employee_id`,`Product_id`),
   ADD KEY `fk_product_id` (`Product_id`);
 
 --
@@ -116,6 +119,16 @@ ALTER TABLE `products`
   ADD PRIMARY KEY (`Product_id`);
 
 --
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `employee`
+--
+ALTER TABLE `employee`
+  MODIFY `employee_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
 -- Constraints for dumped tables
 --
 
@@ -123,8 +136,6 @@ ALTER TABLE `products`
 -- Constraints for table `order_details`
 --
 ALTER TABLE `order_details`
-  ADD CONSTRAINT `Product_id` FOREIGN KEY (`Product_id`) REFERENCES `products` (`Product_id`),
-  ADD CONSTRAINT `employee_id` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`employee_id`),
   ADD CONSTRAINT `fk_employee_id` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`employee_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_product_id` FOREIGN KEY (`Product_id`) REFERENCES `products` (`Product_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
