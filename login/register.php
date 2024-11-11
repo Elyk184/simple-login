@@ -11,6 +11,7 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh; /* Full-height for vertical centering */
+            
         }
         .form-container {
             width: 100%;
@@ -19,6 +20,7 @@
             background-color: #f8f9fa;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        
         }
           /* Full-screen centering */
           body {
@@ -27,7 +29,7 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%);
+            background: linear-gradient(to bottom, #2bd02e 0%, #ff99cc 100%);
         }
         
         /* Form container styling */

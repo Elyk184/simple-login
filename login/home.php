@@ -91,7 +91,7 @@ $outerJoinSql = "
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #0d0d0d;
+            background: linear-gradient(to bottom, #2bd02e 0%, #ff99cc 100%);
             color: #ff99cc;
             margin: 0;
             padding: 20px;
@@ -99,18 +99,18 @@ $outerJoinSql = "
         .container {
             max-width: 800px;
             margin: auto;
-            background: #1a1a1a;
+            background: #transparent;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
             position: relative;
         }
         h3, h4 {
-            color: #ff66b2;
+            color: #333;
             text-align: center;
         }
         .logout {
-            background-color: #ff66b2;
+            background-color: #333;
             color: white;
             padding: 8px 16px;
             text-decoration: none;
@@ -124,7 +124,7 @@ $outerJoinSql = "
             background-color: #ff3385;
         }
         .header {
-            background: #ff66b2;
+            background: #398cb8;
             color: white;
             padding: 12px;
             text-align: center;
@@ -155,7 +155,7 @@ $outerJoinSql = "
             background-color: #333333;
         }
         p {
-            color: #ff99cc;
+            color: #333;
             font-weight: bold;
             margin: 5px 0;
         }

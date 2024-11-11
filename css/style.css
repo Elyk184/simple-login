@@ -5,7 +5,7 @@ body, html {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to bottom, #67b142, #aa39b8);
+    background: linear-gradient(to bottom, #2bd02e 0%, #ff99cc 100%);
     background-size: cover;
     overflow: hidden;
 }
@@ -32,15 +32,7 @@ body, html {
 .text-primary {
     text-align: center;
 }
-.btn-primary {
-    background-color: #333333;
-    border: none;
-    color: #ffffff;
-    padding: 10px;
-    font-weight: bold;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    border-radius: 5px;
-}
+
 
 hr.border-line {
     margin: 15px 0;
